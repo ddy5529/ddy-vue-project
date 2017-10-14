@@ -6,12 +6,12 @@
 </template>
 
 <script>
-  import Hello from './components/Hello.vue'
+  import MainFrame from './components/MainFrame.vue'
 
   export default {
     name: 'app',
     components: {
-      Hello
+      MainFrame
     }
   }
 </script>
