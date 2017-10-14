@@ -1,18 +1,22 @@
 <template>
-
+  <script src="//unpkg.com/vue/dist/vue.js"></script>
+  <script src="//unpkg.com/element-ui@next/lib/index.js"></script>
   <div id="app">
     <el-container style="height: 500px; border: 1px solid #eee">
-      <el-header style="text-align: right; font-size: 12px">
-        <el-dropdown>
-          <i class="el-icon-setting" style="margin-right: 15px"></i>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>查看</el-dropdown-item>
-            <el-dropdown-item>新增</el-dropdown-item>
-            <el-dropdown-item>删除</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-        <span>ddy</span>
-      </el-header>
+      <el-container>
+        <el-header style="text-align: right; font-size: 12px">
+          <img src="./assets/logo.png">
+          <el-dropdown>
+            <i class="el-icon-setting" style="margin-right: 15px"></i>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>查看</el-dropdown-item>
+              <el-dropdown-item>新增</el-dropdown-item>
+              <el-dropdown-item>删除</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+          <span>大大叶</span>
+        </el-header>
+      </el-container>
       <el-container>
         <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
           <el-menu :default-openeds="['1', '3']">
@@ -67,15 +71,20 @@
           <el-main>
             <el-table
               :data="tableData"
-              stripe
-              border
-              style=" width: 100% "
-            >
-              <el-table-column prop="date" label="日期" width="180">
+              style="width: 100%">
+              <el-table-column
+                prop="date"
+                label="日期"
+                width="180">
               </el-table-column>
-              <el-table-column prop="name" label="姓名" width="180">
+              <el-table-column
+                prop="name"
+                label="姓名"
+                width="180">
               </el-table-column>
-              <el-table-column prop="address" label="地址">
+              <el-table-column
+                prop="address"
+                label="地址">
               </el-table-column>
             </el-table>
           </el-main>
@@ -84,7 +93,6 @@
     </el-container>
   </div>
 </template>
-
 <script>
   import ElContainer from '../../node_modules/element-ui/packages/container/src/main.vue'
 
@@ -94,31 +102,27 @@
       return {
         tableData: [{
           date: '2017-10-15',
-          name: 'ddy',
+          name: '大大叶',
           address: '深圳市南山区科技园'
         }, {
           date: '2017-10-15',
-          name: 'ddy',
+          name: '大大叶',
           address: '深圳市南山区科技园'
         }, {
           date: '2017-10-15',
-          name: 'ddy',
+          name: '大大叶',
           address: '深圳市南山区科技园'
         }, {
           date: '2017-10-15',
-          name: 'ddy',
+          name: '大大叶',
           address: '深圳市南山区科技园'
         }]
       }
     }
   }
 </script>
-
-<!--//接下来我将会和你一起遨游VUE的海洋-->
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
   @import url("//unpkg.com/element-ui@next/lib/theme-chalk/index.css");
-
   .el-header, .el-footer {
     background-color: #B3C0D1;
     color: #333;
@@ -126,18 +130,18 @@
     line-height: 60px;
   }
 
-  /*.el-aside {*/
-  /*background-color: #D3DCE6;*/
-  /*color: #333;*/
-  /*text-align: center;*/
-  /*line-height: 200px;*/
-  /*}*/
+  .el-aside {
+    background-color: #D3DCE6;
+    color: #333;
+    text-align: center;
+    line-height: 200px;
+  }
 
   .el-main {
     background-color: #E9EEF3;
     color: #333;
-    /*text-align: center;*/
-    /*line-height: 160px;*/
+    text-align: center;
+    line-height: 160px;
   }
 
   body > .el-container {
