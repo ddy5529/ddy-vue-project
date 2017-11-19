@@ -7,12 +7,14 @@
 </template>
 
 <script>
-  import MainFrame from './components/MainFrame.vue'
+//  import MainFrame from './components/MainFrame.vue'
+  import LoginPaper from './components/Login.vue'
 
   export default {
     name: 'app',
     components: {
-      MainFrame
+      LoginPaper
+//      MainFrame
     }
     // 先声明调用模板，然后通过div的ID值去查找div，然后往div里添加模板。
   }

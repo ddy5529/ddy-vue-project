@@ -11,12 +11,6 @@
           background-color="#545c64"
           text-color="#fff"
           active-text-color="#ffd04b">
-          <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
-            <el-radio-button :label="false">展开</el-radio-button>
-            <el-radio-button :label="true">收起</el-radio-button>
-
-          </el-radio-group>
-
           <el-menu-item index="1">处理中心</el-menu-item>
           <el-submenu index="2">
             <template slot="title">我的工作台</template>
@@ -24,7 +18,7 @@
             <el-menu-item index="2-2">选项2</el-menu-item>
             <el-menu-item index="2-3">选项3</el-menu-item>
           </el-submenu>
-          <el-menu-item index="3"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+          <el-menu-item index="3"><a href="https://github.com/ddy5529" target="_blank">订单管理</a></el-menu-item>
           <el-menu-item index="4">
             <el-badge :value="1" class="item">
               <el-button size="small">评论</el-button>
@@ -93,8 +87,8 @@
               <el-tab-pane label="用户管理">用户管理
                 <template>
                   <el-carousel :interval="4000" type="card" height="200px">
-                    <el-carousel-item v-for="item in 6" :key="item">
-                      <h3>{{ item }}</h3>
+                    <el-carousel-item v-for="ite in item" :key="item">
+                      <h3>{{ ite.text }}</h3>
                     </el-carousel-item>
                   </el-carousel>
                 </template>
@@ -134,7 +128,9 @@
                 <router-link to="/bar">Go to Bar</router-link>
               </el-tab-pane>
 
-              <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
+              <el-tab-pane label="定时任务补偿">定时任务补偿
+                {{}}
+              </el-tab-pane>
               <router-view></router-view>
             </el-tabs>
 
@@ -151,12 +147,7 @@
 <script>
   import Vue from 'vue'
   import Router from 'vue-router'
-  import Aside from '../components/Aside.vue'
   import Content from '../components/Content.vue'
-  import Footer from '../components/Footer.vue'
-  import Header from '../components/Header.vue'
-  import ElSubmenu from '../../node_modules/element-ui/packages/menu/src/submenu.vue'
-  import ElMenuItemGroup from '../../node_modules/element-ui/packages/menu/src/menu-item-group.vue'
 
   const Foo = {template: '<p>foo</p>'}
   const Bar = {template: '<p>bar</p>'}
@@ -164,10 +155,7 @@
   const routes = [
     {path: '/foo', component: Foo},
     {path: '/bar', component: Bar},
-    {path: '/Header', component: Header},
-    {path: '/Aside', component: Aside},
-    {path: '/Content', component: Content},
-    {path: '/Footer', component: Footer}
+    {path: '/Content', component: Content}
   ]
 
   const router = new Router({
@@ -179,8 +167,6 @@
 
   export default {
     components: {
-      ElMenuItemGroup,
-      ElSubmenu
     },
     data () {
       return {
@@ -223,46 +209,6 @@
 
 
 <style scoped>
-  .el-header, .el-footer {
-    background-color: #B3C0D1;
-    color: #333;
-    text-align: center;
-    line-height: 60px;
-  }
 
-  .el-main {
-    background-color: #E9EEF3;
-    color: #333;
-
-  }
-
-  .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
-    min-height: 400px;
-  }
-
-  .el-container:nth-child(5) .el-aside,
-  .el-container:nth-child(6) .el-aside {
-    line-height: 260px;
-  }
-
-  .el-container:nth-child(7) .el-aside {
-    line-height: 320px;
-  }
-
-  .el-carousel__item h3 {
-    color: #475669;
-    font-size: 14px;
-    opacity: 0.75;
-    line-height: 200px;
-  }
-
-  .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
-  }
-
-  .el-carousel__item:nth-child(2n+1) {
-    background-color: #d3dce6;
-  }
 </style>
 
