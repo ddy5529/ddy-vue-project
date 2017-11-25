@@ -1,14 +1,17 @@
 <template>
   <el-main>
-    <template>
-      <el-carousel :interval="4000" type="card" height="200px">
-        <el-carousel-item v-for="item in 6" :key="item">
-          <h3>{{ item }}</h3>
-        </el-carousel-item>
-      </el-carousel>
-    </template>
     <el-tabs type="border-card">
       <el-tab-pane label="用户管理">用户管理
+        <template>
+          <el-carousel :interval="4000" type="card" height="200px">
+            <el-carousel-item v-for="ite in item" :key="item">
+              <h3 class="h3class">{{ ite.text }}</h3>
+              <h3 class="h3class">{{ ite.text }}</h3>
+              <h3 class="h3class">{{ ite.text }}</h3>
+              <image :src=ite.img width="80" height="80"/>
+            </el-carousel-item>
+          </el-carousel>
+        </template>
         <el-table
           :data="tableData"
           stripe
@@ -28,6 +31,7 @@
         </el-pagination>
       </el-tab-pane>
       <el-tab-pane label="配置管理">配置管理
+
         <el-upload
           class="upload-demo"
           action="https://jsonplaceholder.typicode.com/posts/"
@@ -38,21 +42,50 @@
           <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
         </el-upload>
       </el-tab-pane>
-      <el-tab-pane label="角色管理">角色管理</el-tab-pane>
-      <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
-    </el-tabs>
+      <el-tab-pane label="角色管理">角色管理
+        <router-view :is=""></router-view>
+        <router-link to="/foo">Go to Foo</router-link>
+        <router-link to="/bar">Go to Bar</router-link>
+      </el-tab-pane>
 
+      <el-tab-pane label="定时任务补偿">定时任务补偿
+        <template>
+          <el-table :data="tableData" border style="width: 100%">
+            <el-table-column label="图片" width="180">
+              <template scope="scope">
+                <image :src="scope.row.img" width="100" height="100"/>
+              </template>
+            </el-table-column>
+            <el-table-column label="姓名" width="180">
+              <template scope="scope">
+                <el-popover trigger="hover" placement="top">
+                  <p>姓名: {{ scope.row.name }}</p>
+                  <p>住址: {{ scope.row.address }}</p>
+                  <p>时间: {{ scope.row.date }}</p>
+                  <p><image :src="scope.row.img" width="100" height="100"/></p>
+                  <div slot="reference" class="name-wrapper">
+                    <el-tag>{{ scope.row.name }}</el-tag>
+                  </div>
+                </el-popover>
+              </template>
+            </el-table-column>
+            <el-table-column label="操作">
+              <template scope="scope">
+                <el-popover trigger="hover" placement="top">
+                  <div slot="reference" class="name-wrapper">
+                    <image :src="scope.row.img" width="100" height="100"/>
+                  </div>
+                </el-popover>
+              </template>
+            </el-table-column>
+          </el-table>
+        </template>
+      </el-tab-pane>
+      <router-view></router-view>
+    </el-tabs>
   </el-main>
 </template>
 
 <script>
-  import Vue from 'vue'
-  import Router from 'vue-router'
-
-  const router = new Router({
-  })
-  new Vue({
-    router
-  }).$mount('#app')   // 在这里定义vue实例的指定的ID
 
 </script>
